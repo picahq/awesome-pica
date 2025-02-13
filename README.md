@@ -8,7 +8,7 @@
   </p>
 </p>
 
-## **Sample Projects & Integrations**
+---
 
 - **[ElevenLabs Conversational Agent](./elevenlabs-conversational-ai-agent)**  
   *A voice assistant powered by ElevenLabs' conversational AI capabilities.*
