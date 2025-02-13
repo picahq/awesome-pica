@@ -1,0 +1,229 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&display=swap');
+
+:root {
+    --foreground-rgb: 224, 224, 224;
+    --background-start-rgb: 13, 17, 23;
+    --background-end-rgb: 18, 22, 28;
+    --primary-green-rgb: 16, 185, 129;
+    --secondary-green-rgb: 16, 185, 129;
+    --green-glow-rgb: 16, 185, 129, 0.12;
+    --dark-green-rgb: 13, 148, 103;
+    --terminal-black-rgb: 22, 27, 34;
+    --text-dim-rgb: 170, 170, 170;
+}
+
+@font-face {
+    font-family: "JetBrains Mono";
+    src: url("https://cdn.jsdelivr.net/gh/JetBrains/JetBrainsMono/web/woff2/JetBrainsMono-Regular.woff2") format("woff2");
+}
+
+* {
+    font-family: "JetBrains Mono", monospace;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+@media (prefers-color-scheme: dark) {
+    :root {
+        --foreground-rgb: 224, 224, 224;
+        --background-start-rgb: 13, 17, 23;
+        --background-end-rgb: 18, 22, 28;
+        --primary-green-rgb: 16, 185, 129;
+        --secondary-green-rgb: 16, 185, 129;
+        --green-glow-rgb: 16, 185, 129, 0.12;
+        --dark-green-rgb: 13, 148, 103;
+        --terminal-black-rgb: 22, 27, 34;
+        --text-dim-rgb: 170, 170, 170;
+    }
+}
+
+body {
+    background: linear-gradient(to bottom,
+            rgb(var(--background-start-rgb)),
+            rgb(var(--background-end-rgb)));
+    color: rgb(var(--foreground-rgb));
+}
+
+@layer utilities {
+    .text-balance {
+        text-wrap: balance;
+    }
+}
+
+.text-highlight {
+    color: rgb(var(--primary-green-rgb));
+    text-shadow: 0 0 10px rgba(var(--green-glow-rgb));
+}
+
+.accent-background {
+    background-color: rgb(var(--secondary-green-rgb));
+}
+
+/* Additional web3 utility classes */
+.text-dim {
+    color: rgb(var(--text-dim-rgb));
+}
+
+.terminal-bg {
+    background-color: rgb(var(--terminal-black-rgb));
+}
+
+.green-glow {
+    box-shadow: 0 0 15px rgba(var(--green-glow-rgb));
+}
+
+.dark-green-text {
+    color: rgb(var(--dark-green-rgb));
+}
+
+.hover-glow:hover {
+    filter: drop-shadow(0 0 8px rgba(var(--primary-green-rgb), 0.5));
+    transition: filter 0.2s ease-in-out;
+}
+
+@keyframes gradient-text {
+    0% {
+        background-position: 0% 50%;
+    }
+
+    50% {
+        background-position: 100% 50%;
+    }
+
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+.welcome-gradient {
+    color: rgb(var(--foreground-rgb));
+    background: linear-gradient(120deg,
+            rgb(var(--foreground-rgb)) 0%,
+            rgb(var(--foreground-rgb)) 25%,
+            rgb(255, 255, 255) 35%,
+            rgb(var(--foreground-rgb)) 45%,
+            rgb(var(--foreground-rgb)) 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    background-size: 200% auto;
+    animation: gradient-text 3s linear infinite;
+    text-shadow: 0 0 15px rgba(255, 255, 255, 0.1);
+    font-weight: 500;
+}
+
+@keyframes silver-shine {
+    0% {
+        background-position: -200% 0;
+    }
+
+    100% {
+        background-position: 200% 0;
+    }
+}
+
+.silver-box {
+    background: linear-gradient(120deg,
+            rgba(40, 44, 52, 0.95) 0%,
+            rgba(40, 44, 52, 0.95) 30%,
+            rgba(125, 125, 125, 0.2) 45%,
+            rgba(40, 44, 52, 0.95) 60%,
+            rgba(40, 44, 52, 0.95) 100%);
+    background-size: 200% 100%;
+    animation: silver-shine 4s linear infinite;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow:
+        0 0 20px rgba(255, 255, 255, 0.05),
+        inset 0 0 20px rgba(255, 255, 255, 0.05);
+}
+
+.welcome-text {
+    color: rgb(var(--foreground-rgb));
+    text-shadow: 0 0 15px rgba(255, 255, 255, 0.1);
+    font-weight: 500;
+}
+
+/* Prism.js customization - GitHub theme */
+pre[class*="language-"] {
+    background: #0d1117 !important;
+    border: 1px solid #30363d;
+    border-radius: 6px;
+    margin: 0 !important;
+    padding: 16px !important;
+    line-height: 1.5 !important;
+}
+
+code[class*="language-"] {
+    text-shadow: none !important;
+    background: none !important;
+    font-family: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace !important;
+    font-size: 0.85rem !important;
+    color: #e6edf3 !important;
+    font-feature-settings: "liga" 1, "calt" 1, "ss01" 1, "ss02" 1, "ss03" 1, "ss04" 1, "ss05" 1, "ss06" 1, "ss07" 1, "ss08" 1 !important;
+    letter-spacing: -0.025em !important;
+}
+
+.token.comment {
+    color: #8b949e !important;
+}
+
+.token.string {
+    color: #a5d6ff !important;
+}
+
+.token.number,
+.token.boolean {
+    color: #79c0ff !important;
+}
+
+.token.property {
+    color: #7ee787 !important;
+}
+
+.token.punctuation {
+    color: #c9d1d9 !important;
+}
+
+.token.operator {
+    color: #ff7b72 !important;
+    background: none !important;
+}
+
+.token.null,
+.token.undefined {
+    color: #ff7b72 !important;
+}
+
+.token.keyword {
+    color: #ff7b72 !important;
+}
+
+.token.function {
+    color: #d2a8ff !important;
+}
+
+/* Scrollbar Styling */
+pre::-webkit-scrollbar {
+    width: 12px;
+    height: 12px;
+    background-color: #0d1117;
+}
+
+pre::-webkit-scrollbar-thumb {
+    background-color: #30363d;
+    border: 3px solid #0d1117;
+    border-radius: 6px;
+}
+
+pre::-webkit-scrollbar-thumb:hover {
+    background-color: #6e7681;
+}
+
+.font-mono {
+    font-family: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace !important;
+}
