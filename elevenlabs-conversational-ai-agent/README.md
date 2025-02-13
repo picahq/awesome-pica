@@ -1,4 +1,4 @@
-# ElevenLabs Integration
+# ElevenLabs Conversational AI Agent
 
 ![ElevenLabs Integration](https://assets.picaos.com/github/elevenlabs.png)
 
