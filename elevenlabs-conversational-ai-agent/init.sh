@@ -1,10 +1,8 @@
 #!/bin/sh
 
 if [ -f .env ]; then
-    while IFS= read -r line; do
-        # Skip empty lines and comments (lines starting with #)
+    while IFS= read -r line || [ -n "$line" ]; do
         if [ -n "$line" ] && ! echo "$line" | grep -q '^#'; then
-            # Export the variable
             export "$line"
         fi
     done < .env
