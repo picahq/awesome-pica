@@ -1,6 +1,8 @@
 # ElevenLabs Integration
 
-This example demonstrates how to integrate an ElevenLabs agent with [Pica OneTool](https://docs.picaos.com/core/one-tool).
+![ElevenLabs Integration](https://assets.picaos.com/github/elevenlabs.png)
+
+This example demonstrates how to integrate an [ElevenLabs Conversational AI Agent](https://elevenlabs.io/conversational-ai) with [Pica OneTool](https://docs.picaos.com/core/one-tool).
 
 ## **Prerequisites**
 Before you begin, ensure you have:
