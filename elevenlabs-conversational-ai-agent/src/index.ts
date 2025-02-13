@@ -1,5 +1,5 @@
 import { openai } from "@ai-sdk/openai";
-import { convertToCoreMessages, Message, streamText } from "ai";
+import { CoreMessage, streamText } from "ai";
 import { Pica } from "@picahq/ai";
 import express, { Request, Response } from "express";
 import dotenv from "dotenv";
@@ -12,7 +12,8 @@ app.use(express.json());
 app.post("/", async (req: Request, res: Response) => {
     try {
         const { message } = req.body;
-        const messages: Omit<Message, "id">[] = [{
+
+        const messages: CoreMessage[] = [{
             role: "user",
             content: message
         }];
@@ -23,7 +24,7 @@ app.post("/", async (req: Request, res: Response) => {
             model: openai("gpt-4o"),
             system: systemPrompt,
             tools: { ...pica.oneTool },
-            messages: convertToCoreMessages(messages),
+            messages,
             maxSteps: 10,
         });
 
