@@ -1,15 +1,21 @@
 {
-  "name": "nodejs",
+  "name": "elevenlabs-conversational-ai-agent",
   "version": "1.0.0",
-  "description": "",
+  "description": "Conversational AI agent for ElevenLabs with Pica AI",
   "main": "index.js",
   "scripts": {
     "start": "ts-node src/index.ts",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
+  "keywords": [
+    "elevenlabs",
+    "conversational",
+    "ai",
+    "agent",
+    "pica"
+  ],
+  "author": "@picahq",
+  "license": "GPL-3.0-only",
   "dependencies": {
     "@ai-sdk/openai": "^1.1.9",
     "@picahq/ai": "^2.0.1",

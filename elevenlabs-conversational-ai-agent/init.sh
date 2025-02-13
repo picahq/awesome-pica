@@ -50,8 +50,8 @@ fi
 
 JSON_PAYLOAD=$(cat <<EOF
 {
+  "name": "Pica Agent",
   "conversation_config": {
-    "name": "Pica Agent - $ENDPOINT",
     "agent": {
       "first_message": "Hey there, I am Pica - your AI assistant to execute any task. How can I help you today?",
       "prompt": {
@@ -61,20 +61,20 @@ JSON_PAYLOAD=$(cat <<EOF
           {
             "name": "pica",
             "type": "webhook",
-            "description": "You are a powerful AI tool that has access to 100+ tools through the Pica AI endpoint. Simply pass the string prompt to the endpoint in following structure: \n\n\`\`\`json\n{\n    \"messages\": '[{\"role\":\"user\",\"content\":\"List my 5 latest available connections\"}]'\n}\n\`\`\`\n\nWhere \"List my 5 latest available connections\" is an example user prompt.",
+            "description": "You are a powerful AI tool that has access to 100+ tools through the Pica AI endpoint. Simply pass the string prompt to the endpoint in following structure: \r\n\r\n```json\r\n{\r\n    \"message\": \"List my 5 latest available connections\"\r\n}\r\n```\r\n\r\nWhere \"List my 5 latest available connections\" is an example user prompt.",
             "api_schema": {
               "url": "$ENDPOINT",
               "method": "POST",
               "request_body_schema": {
-                "description": "The string prompt to the Pica AI streaming endpoint in the following structure:\n\n\`\`\`json\n{\n    \"messages\": '[{\"role\":\"user\",\"content\":\"List my 5 latest available connections\"}]'\n}\n\`\`\`\n\nThe role must always be user and the \"List my 5 latest available connections\" is an example user prompt.",
+                "description": "The string prompt to the Pica AI streaming endpoint in following structure: \r\n\r\n```json\r\n{\r\n    \"message\": \"List my 5 latest available connections\"\r\n}\r\n```\r\n\r\n\"List my 5 latest available connections\" is an example user prompt.",
                 "type": "object",
                 "properties": {
-                  "messages": {
+                  "message": {
                     "type": "string",
-                    "description": "A JSON string to be sent with a user message in the following string shape:\n\n'[{\"role\":\"user\",\"content\":\"USER MESSAGE HERE\"}]'"
+                    "description": "The string message to be sent."
                   }
                 },
-                "required": ["messages"]
+                "required": ["message"]
               }
             }
           },
