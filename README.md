@@ -1,5 +1,5 @@
 <p align="center">
-  <h1 align="center">Pica OneTool Examples</h1>
+  <h1 align="center">Awesome Pica</h1>
   <p align="center">
     <img src="https://assets.picaos.com/github/pica-man.png" width="200" alt="Pica One Tool">
   </p>
