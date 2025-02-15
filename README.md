@@ -22,5 +22,5 @@
 - **[One Tool Chat App](./onetool-chat-app)**  
   *A chat application utilizing the Pica One Tool for seamless communication.*
 
-- **[Form Submission Chat](./form-submission-chat)**  
+- **[Form Submission Chat App](./form-submission-chat-app)**  
   *A chat application to collect form submissions from users (similar to Typeform) for AI Agent Ideas.*
