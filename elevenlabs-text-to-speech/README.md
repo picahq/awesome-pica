@@ -1,3 +1,0 @@
-# ElevenLabs Text to Speech
-
-Coming soon...
