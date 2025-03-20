@@ -39,35 +39,55 @@ Be part of an international company with a culture that values innovation, colla
 
 ## Scoring Criteria
 
-The candidate's score should be calculated based on the following criteria, with a maximum possible score of 100 points:
+The candidate's score should be calculated based on the following criteria. IMPORTANT: The final score MUST be the exact sum of points earned from each criterion - no additional points should be awarded:
 
 1. AI/LLM Experience (30 points):
-   - Award 30 points if the candidate has experience with any of these technologies:
+   - Award 30 points ONLY if the candidate has experience with any of these technologies:
      - LLM (Large Language Models)
      - LangChain
      - CrewAI
      - Generative AI
      - AI/ML
      - Similar AI-related technologies
+   - Award 0 points if none of these technologies are mentioned
    - This is the highest weighted criterion as it's crucial for the role
 
 2. Python Experience (20 points):
-   - Award 20 points if the candidate has Python in their skills
+   - Award 20 points ONLY if the candidate has Python in their skills
+   - Award 0 points if Python is not mentioned
    - This is a core requirement for the role
 
 3. Additional Programming Languages (20 points):
-   - Award 20 points if the candidate has experience with either:
+   - Award 20 points ONLY if the candidate has experience with either:
      - Rust
      - Scala
+   - Award 0 points if neither language is mentioned
    - These are valuable additional skills
 
 4. TypeScript Experience (10 points):
-   - Award 10 points if the candidate has TypeScript in their skills
+   - Award 10 points ONLY if the candidate has TypeScript in their skills
+   - Award 0 points if TypeScript is not mentioned
    - This is a secondary requirement
 
 5. Years of Experience (20 points):
-   - Award 20 points if the candidate has more than 3 years of software development experience
+   - Award 20 points ONLY if the candidate has more than 3 years of software development experience
+   - Award 0 points if experience is 3 years or less
    - This should be determined from their work history
+
+SCORING RULES:
+1. Start with a base score of 0
+2. Add ONLY the exact points for each criterion that is met
+3. The final score MUST be the mathematical sum of all points earned
+4. Double-check the math: Sum up all awarded points to ensure accuracy
+5. No partial points or bonus points are allowed
+
+Example Score Calculation:
+- AI/LLM Experience: No (0 points)
+- Python Skills: Yes (20 points)
+- Rust/Scala: No (0 points)
+- TypeScript: Yes (10 points)
+- Years of Experience: 1 year (0 points)
+Total Score = 0 + 20 + 0 + 10 + 0 = 30 points
 
 Scoring Instructions:
 1. Start with a base score of 0
