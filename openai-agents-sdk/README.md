@@ -44,6 +44,7 @@ from agents.mcp import MCPServerStdio, MCPServerStdioParams, MCPUtil
 import asyncio
 import os
 from dotenv import load_dotenv
+from pica_ai import PicaClient, PicaClientOptions
 
 # Load environment variables
 load_dotenv()
@@ -51,6 +52,18 @@ load_dotenv()
 async def use_pica_mcp():
     # Get the Pica API secret from environment variables
     pica_secret = os.getenv("PICA_SECRET")
+
+    if not pica_secret:
+        raise ValueError("PICA_SECRET environment variable is not set")
+
+    pica = PicaClient(
+        secret=pica_secret, 
+        options=PicaClientOptions(
+            connectors=["*"],
+        )
+    )
+
+    system_prompt = pica.generate_system_prompt()
     
     # Create the MCPServerStdio with the npm package
     params = MCPServerStdioParams({
@@ -60,13 +73,12 @@ async def use_pica_mcp():
     })
     
     async with MCPServerStdio(params=params) as server:
-        # Get Agent tools from the MCP server
         agent_tools = await MCPUtil.get_function_tools(server)
         
-        # Create an agent with MCP tools
+        # Create an agent with Pica's MCP tools
         agent = Agent(
             name="Assistant with Pica",
-            instructions="You are a helpful assistant with Pica tools.",
+            instructions=system_prompt,
             tools=agent_tools
         )
         
