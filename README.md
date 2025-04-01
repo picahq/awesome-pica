@@ -21,3 +21,6 @@
 
 - **[Candidate Tracking Assistant](./candidate-tracking-assistant)**  
   *A candidate tracking assistant to help with candidate submissions and classification.*
+
+- **[OpenAI Agents SDK](./openai-agents-sdk)**  
+  *A collection of examples showcasing how to use the Pica MCP server with OpenAI's Agents SDK.*

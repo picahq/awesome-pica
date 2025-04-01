@@ -57,3 +57,5 @@ ngrok/
 
 # Environment file
 .env
+
+venv/
