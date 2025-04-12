@@ -10,17 +10,17 @@
 
 ---
 
+- **[Candidate Tracking Assistant](./candidate-tracking-assistant)**  
+  *A candidate tracking assistant to help with candidate submissions and classification.*
+
 - **[ElevenLabs Conversational Agent](./elevenlabs-conversational-ai-agent)**  
   *A voice assistant powered by ElevenLabs' conversational AI capabilities.*
-
-- **[One Tool Chat App](./onetool-chat-app)**  
-  *A chat application utilizing the Pica One Tool for seamless communication.*
 
 - **[Form Submission Chat App](./form-submission-chat-app)**  
   *A chat application to collect form submissions from users (similar to Typeform) for AI Agent Ideas.*
 
-- **[Candidate Tracking Assistant](./candidate-tracking-assistant)**  
-  *A candidate tracking assistant to help with candidate submissions and classification.*
+- **[One Tool Chat App](./onetool-chat-app)**  
+  *A chat application utilizing the Pica One Tool for seamless communication.*
 
 - **[OpenAI Agents SDK](./openai-agents-sdk)**  
   *A collection of examples showcasing how to use the Pica MCP server with OpenAI's Agents SDK.*
