@@ -18,11 +18,11 @@
   "license": "GPL-3.0-only",
   "dependencies": {
     "@ai-sdk/openai": "^1.1.9",
-    "@picahq/ai": "^2.0.1",
+    "@picahq/ai": "^2.4.6",
     "@types/express": "^5.0.0",
     "@types/node": "^18.19.75",
     "ai": "^4.1.34",
-    "axios": "^1.7.9",
+    "axios": "^1.8.4",
     "dotenv": "^16.4.7",
     "express": "^4.21.2",
     "ts-node": "^10.9.2",
