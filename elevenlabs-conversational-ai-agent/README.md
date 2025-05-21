@@ -1,6 +1,6 @@
 # ElevenLabs Conversational AI Agent
 
-![ElevenLabs Integration](https://assets.picaos.com/github/elevenlabs.png)
+<img src="https://assets.picaos.com/github/elevenlabs.svg" style="border-radius: 5px;" alt="ElevenLabs Integration">
 
 This example demonstrates how to integrate an [ElevenLabs Conversational AI Agent](https://elevenlabs.io/conversational-ai) with [Pica OneTool](https://docs.picaos.com/core/one-tool).
 
