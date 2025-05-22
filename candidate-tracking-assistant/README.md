@@ -13,6 +13,10 @@ A Next.js application that automates the processing of job candidate emails from
   - Additional Programming Languages (10 points)
   - TypeScript/JavaScript Experience (10 points)
   - Years of Experience (10 points)
+- 📧 Automated email communication for shortlisted candidates (score ≥ 50):
+  - Personalized email requesting a 2-3 minute video introduction
+  - Specific questions about experience and interest in Pica
+  - Calendly link for scheduling a 30-minute interview
 - 📝 Extracts candidate details including:
   - Name, Email, Location
   - LinkedIn Profile Link
@@ -43,8 +47,8 @@ The following environment variables are required:
 
 ```env
 OPENAI_API_KEY=your_openai_api_key
-NEXT_PUBLIC_GMAIL_CONNECTION_KEY=your_gmail_connection_key
-NEXT_PUBLIC_PICA_SECRET_KEY=your_public_pica_key
+GMAIL_CONNECTION_KEY=your_gmail_connection_key
+PICA_SECRET_KEY=your_public_pica_key
 AIRTABLE_BASE_ID=your_airtable_base_id
 AIRTABLE_TABLE_ID=your_airtable_table_id
 ```

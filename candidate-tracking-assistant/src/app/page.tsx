@@ -114,29 +114,12 @@ export default function Home() {
 
   const loadEmails = async (pageToken?: string) => {
     try {
-      const url = new URL('https://api.picaos.com/v1/passthrough/users/me/messages');
-      url.searchParams.append('q', 'subject:"is interested in Software Engineer (Integrations) at Pica" -label:Wellfound Candidate found');
-      if (pageToken) {
-        url.searchParams.append('pageToken', pageToken);
+      const url = `/api/get-emails${pageToken ? `?pageToken=${pageToken}` : ''}`;
+      const response = await fetch(url);
+      if (!response.ok) {
+        throw new Error('Failed to fetch emails');
       }
-
-      // Make sure the secret key is present
-      if (!process.env.NEXT_PUBLIC_PICA_SECRET_KEY) {
-        throw new Error('PICA_SECRET_KEY is not present');
-      }
-
-      // Make sure the connection key is present
-      if (!process.env.NEXT_PUBLIC_GMAIL_CONNECTION_KEY) {
-        throw new Error('GMAIL_CONNECTION_KEY is not present');
-      }
-
-      const response = await fetch(url.toString(), {
-        headers: {
-          'x-pica-secret': process.env.NEXT_PUBLIC_PICA_SECRET_KEY,
-          'x-pica-connection-key': process.env.NEXT_PUBLIC_GMAIL_CONNECTION_KEY,
-          'content-type': 'application/json'
-        }
-      });
+      
       const data: EmailResponse = await response.json();
       
       // If this is a new page (not the first load), append the new emails
