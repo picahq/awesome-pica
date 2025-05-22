@@ -33,6 +33,7 @@ Analyze the HTML content within body.data with exceptional vigilance. Extract th
 - Additionally, infer experience duration based on graduation year (e.g., if graduated in 2022 and the current year is 2025, assume ~3 year experience). Extract graduation year from the school section.
 - Combine all relevant durations to provide a total estimate of years of experience.
 - If no relevant information is found, mark as "Not Found."
+- Make sure the years of experience is a number.
 
 #### School:
 - Locate educational institutions attended by the candidate from the "School" section.
