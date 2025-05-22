@@ -13,7 +13,7 @@ export async function POST(request: Request) {
         if (!messageId) {
             return new Response("Error: messageId is required", { status: 400 });
         }
-        const secretKey = process.env.NEXT_PUBLIC_PICA_SECRET_KEY;
+        const secretKey = process.env.PICA_SECRET_KEY;
 
 
         if (!secretKey) {
