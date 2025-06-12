@@ -10,6 +10,9 @@
 
 ---
 
+- **[AuthKit Next.js App](./authkit-next-app/)**
+  *A Next.js demo app with the frontend and backend for implementing AuthKit.*
+
 - **[Candidate Tracking Assistant](./candidate-tracking-assistant)**  
   *A candidate tracking assistant to help with candidate submissions and classification.*
 
