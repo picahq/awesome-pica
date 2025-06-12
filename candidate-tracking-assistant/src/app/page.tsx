@@ -23,6 +23,9 @@ export default function Home() {
   
   const { messages, input, handleInputChange, handleSubmit: originalHandleSubmit, setMessages } = useChat({
     api: '/api/chat',
+    body: {
+      messageId: emails?.[currentEmailIndex]?.id
+    },
     onFinish: () => {
       setIsProcessing(false);
       // Check the last message to see if processing was successful
@@ -111,45 +114,28 @@ export default function Home() {
 
   const loadEmails = async (pageToken?: string) => {
     try {
-      const url = new URL('https://api.picaos.com/v1/passthrough/users/me/messages');
-      url.searchParams.append('q', 'subject:"is interested in Software Engineer (Integrations) at Pica" -label:Wellfound Candidate found');
-      if (pageToken) {
-        url.searchParams.append('pageToken', pageToken);
+      const url = `/api/get-emails${pageToken ? `?pageToken=${pageToken}` : ''}`;
+      const response = await fetch(url);
+      if (!response.ok) {
+        throw new Error('Failed to fetch emails');
       }
-
-      // Make sure the secret key is present
-      if (!process.env.NEXT_PUBLIC_PICA_SECRET_KEY) {
-        throw new Error('PICA_SECRET_KEY is not present');
-      }
-
-      // Make sure the connection key is present
-      if (!process.env.NEXT_PUBLIC_GMAIL_CONNECTION_KEY) {
-        throw new Error('GMAIL_CONNECTION_KEY is not present');
-      }
-
-      const response = await fetch(url.toString(), {
-        headers: {
-          'x-pica-secret': process.env.NEXT_PUBLIC_PICA_SECRET_KEY,
-          'x-pica-connection-key': process.env.NEXT_PUBLIC_GMAIL_CONNECTION_KEY,
-          'content-type': 'application/json'
-        }
-      });
+      
       const data: EmailResponse = await response.json();
       
       // If this is a new page (not the first load), append the new emails
       if (pageToken) {
-        setEmails(prevEmails => [...prevEmails, ...data.messages]);
+        setEmails(prevEmails => [...prevEmails, ...(data.messages || [])]);
       } else {
-        setEmails(data.messages);
+        setEmails(data.messages || []);
       }
       
       setNextPageToken(data.nextPageToken);
       setMessages([]);
       setProcessedCount(0);
-      setCurrentEmailIndex(0);
+      setCurrentEmailIndex(data.messages?.length ? 0 : -1);
       
       // Start processing first email of the new batch
-      if (data.messages.length > 0) {
+      if (data.messages?.length > 0) {
         const firstEmail = data.messages[0];
         handleInputChange({
           target: { value: `Start the candidate tracking process for messageId: ${firstEmail.id}` }
@@ -181,8 +167,8 @@ export default function Home() {
       <div className="fixed top-0 left-0 right-0 bg-zinc-800 p-4 text-zinc-100 border-b border-zinc-700">
         <div className="max-w-md mx-auto">
           <div className="flex justify-between items-center">
-            <span>Processed: {processedCount} / {emails.length}</span>
-            {emails.length > 0 && (
+            <span>Processed: {processedCount} / {emails?.length}</span>
+            {emails?.length > 0 && (
               <div className="w-64 h-2 bg-zinc-700 rounded-full">
                 <div 
                   className="h-full bg-emerald-500 rounded-full transition-all duration-300"
@@ -196,37 +182,46 @@ export default function Home() {
 
       {/* Messages Display */}
       <div className="mb-20">
-        {messages.map((message) => (
-          <div 
-            key={message.id} 
-            className={`whitespace-pre-wrap mb-4 p-4 rounded break-words ${
-              message.role === 'user' 
-                ? 'bg-zinc-800 border border-zinc-700' 
-                : 'bg-zinc-800 border-l-4 border-l-emerald-500 border-y border-r border-zinc-700'
-            }`}
-          >
-            <div className={`font-medium mb-1 ${
-              message.role === 'user' ? 'text-blue-400' : 'text-emerald-400'
-            }`}>
-              {message.role === 'user' ? 'User: ' : 'AI: '}
+        {emails.length === 0 && !isProcessing ? (
+          <div className="text-center p-8 bg-zinc-800 border border-zinc-700 rounded">
+            <div className="text-zinc-400 mb-2">No emails found</div>
+            <div className="text-sm text-zinc-500">
+              There are no unprocessed candidate emails matching the search criteria.
             </div>
-            {message.parts.map((part, partIndex) => {
-              switch (part.type) {
-                case 'text':
-                  return (
-                    <div 
-                      key={`${message.id}-part-${partIndex}`} 
-                      className="text-zinc-300 overflow-hidden overflow-wrap-break-word"
-                    >
-                      {part.text}
-                    </div>
-                  );
-                default:
-                  return null;
-              }
-            })}
           </div>
-        ))}
+        ) : (
+          messages.map((message) => (
+            <div 
+              key={message.id} 
+              className={`whitespace-pre-wrap mb-4 p-4 rounded break-words ${
+                message.role === 'user' 
+                  ? 'bg-zinc-800 border border-zinc-700' 
+                  : 'bg-zinc-800 border-l-4 border-l-emerald-500 border-y border-r border-zinc-700'
+              }`}
+            >
+              <div className={`font-medium mb-1 ${
+                message.role === 'user' ? 'text-blue-400' : 'text-emerald-400'
+              }`}>
+                {message.role === 'user' ? 'User: ' : 'AI: '}
+              </div>
+              {message.parts.map((part, partIndex) => {
+                switch (part.type) {
+                  case 'text':
+                    return (
+                      <div 
+                        key={`${message.id}-part-${partIndex}`} 
+                        className="text-zinc-300 overflow-hidden overflow-wrap-break-word"
+                      >
+                        {part.text}
+                      </div>
+                    );
+                  default:
+                    return null;
+                }
+              })}
+            </div>
+          ))
+        )}
       </div>
 
       {/* Chat Form */}
@@ -245,21 +240,21 @@ export default function Home() {
       <div className="fixed bottom-0 w-full max-w-md p-2 mb-24 flex gap-2">
         <button
           onClick={() => loadEmails()}
-          disabled={isProcessing || (emails.length > 0 && currentEmailIndex === 0)}
+          disabled={isProcessing || (emails?.length > 0 && currentEmailIndex === 0)}
           className={`flex-1 p-2 rounded shadow-xl transition-all
-            ${isProcessing || (emails.length > 0 && currentEmailIndex === 0)
+            ${isProcessing || (emails?.length > 0 && currentEmailIndex === 0)
               ? 'bg-zinc-800 text-zinc-500 border border-zinc-700 cursor-not-allowed'
               : 'bg-zinc-800 hover:bg-zinc-700 text-zinc-100 border border-zinc-600 hover:border-zinc-500'
             }`}
         >
-          {emails.length === 0 ? 'Load Emails' : 'Reload Emails'}
+          {emails?.length === 0 ? 'Load Emails' : 'Reload Emails'}
         </button>
         
         <button
           onClick={processNextEmail}
-          disabled={isProcessing || emails.length === 0 || currentEmailIndex >= emails.length - 1}
+          disabled={isProcessing || emails?.length === 0 || currentEmailIndex >= emails?.length - 1}
           className={`flex-1 p-2 rounded shadow-xl transition-all
-            ${isProcessing || emails.length === 0 || currentEmailIndex >= emails.length - 1
+            ${isProcessing || emails?.length === 0 || currentEmailIndex >= emails?.length - 1
               ? 'bg-zinc-800 text-zinc-500 border border-zinc-700 cursor-not-allowed'
               : 'bg-emerald-700 hover:bg-emerald-600 text-zinc-100 border border-emerald-600'
             }`}
@@ -270,9 +265,9 @@ export default function Home() {
       
       {/* Status Message */}
       <div className="fixed bottom-0 w-full max-w-md p-2 mb-16 text-center">
-        {emails.length > 0 && currentEmailIndex >= emails.length ? (
+        {emails?.length > 0 && currentEmailIndex >= emails?.length ? (
           <span className="text-emerald-500 font-medium">All emails processed!</span>
-        ) : emails.length > 0 && processedCount === currentEmailIndex + 1 ? (
+        ) : emails?.length > 0 && processedCount === currentEmailIndex + 1 ? (
           <span className="text-blue-500 font-medium">Ready for next email</span>
         ) : null}
       </div>
