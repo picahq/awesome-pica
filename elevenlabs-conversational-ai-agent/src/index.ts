@@ -1,4 +1,4 @@
-import { openai } from "@ai-sdk/openai";
+import { google } from "@ai-sdk/google"; // <-- NEW
 import { CoreMessage, streamText } from "ai";
 import { Pica } from "@picahq/ai";
 import express, { Request, Response } from "express";
@@ -20,8 +20,9 @@ app.post("/", async (req: Request, res: Response) => {
 
         const pica = new Pica(process.env.PICA_SECRET_KEY as string);
         const systemPrompt = await pica.generateSystemPrompt();
+
         const stream = await streamText({
-            model: openai("gpt-4o"),
+            model: google("gemini-2.5-pro"), // <-- UPDATED
             system: systemPrompt,
             tools: { ...pica.oneTool },
             messages,
