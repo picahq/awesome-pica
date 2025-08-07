@@ -4,7 +4,7 @@ This project demonstrates integration of [**Agno**](https://www.agno.com/) with 
 
 ## 🚀 **What This Integration Achieves**
 
-- ✅ ** Platform Execution**: Tasks are executed through Pica's platform integrations
+- ✅ **Platform Execution**: Tasks are executed through Pica's platform integrations
 - ✅ **Dynamic Task Handling**: Tasks created by Agno agents are dynamically passed to Pica for execution
 - ✅ **Proper Tool Integration**: Uses official `pica_langchain` package for reliable connections
 
