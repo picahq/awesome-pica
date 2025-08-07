@@ -9,6 +9,8 @@
 </p>
 
 ---
+- **[AgentOps Example](./agentops-example/)**  
+  *Automated business process execution using Agno agents and Pica with dynamic task handling and multi-agent orchestration.*
 
 - **[AuthKit Next.js App](./authkit-next-app/)**
   *A Next.js demo application with the frontend and backend for implementing AuthKit.*
@@ -27,3 +29,5 @@
 
 - **[OpenAI Agents SDK](./openai-agents-sdk)**  
   *A collection of examples showcasing how to use the Pica MCP server with OpenAI's Agents SDK.*
+
+
