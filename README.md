@@ -9,7 +9,7 @@
 </p>
 
 ---
-- **[AgentOps Example](./agentops-example/)**  
+- **[Agno Demo](./agno-demo/)**  
   *Automated business process execution using Agno agents and Pica with dynamic task handling and multi-agent orchestration.*
 
 - **[AuthKit Next.js App](./authkit-next-app/)**

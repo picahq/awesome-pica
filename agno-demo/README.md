@@ -1,6 +1,6 @@
 # Agno + Pica Integration - Business Automation Workflow
 
-This project demonstrates integration of **Agno** with **Pica** for automated business process execution.
+This project demonstrates integration of [**Agno**](https://www.agno.com/) with **Pica** for automated business process execution.
 
 ## 🚀 **What This Integration Achieves**
 
@@ -110,3 +110,7 @@ python business_automation_workflow.py
 - 🔗 **Multi-Platform Integration**: Single workflow spans multiple tools
 - 📊 **State Management**: Caching and recovery capabilities
 
+## Documentation
+
+- [Agno Documentation](https://docs.agno.com/)
+- [Pica Documentation](https://docs.picaos.com/)
