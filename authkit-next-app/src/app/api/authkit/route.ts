@@ -13,7 +13,7 @@ export async function OPTIONS(req: NextRequest) {
 }
 
 export async function POST(req: NextRequest) {
-    const authKitToken = new AuthKitToken(process.env.PICA_SECRET_KEY as string);
+    const authKitToken = new AuthKitToken(process.env.PICA_SECRET_KEY!);
 
     const token = await authKitToken.create({
         identity: "userId",
