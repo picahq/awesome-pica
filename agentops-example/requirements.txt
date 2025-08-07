@@ -1,0 +1,12 @@
+agno
+requests
+python-dotenv
+pydantic
+rich
+typer
+httpx
+structlog
+sqlalchemy
+pica_langchain
+langchain_openai
+langchain
