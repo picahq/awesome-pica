@@ -60,7 +60,7 @@ The system is structured as a three-layer architecture:
 ### 1. Clone the Repository
 
 ```bash
-git clone https://github.com/sagacious-satadru/mastra-pica-multipurpose-ai-agent
+git clone https://github.com/picahq/awesome-pica.git
 cd mastra-pica-multipurpose-ai-agent
 ```
 
@@ -187,4 +187,5 @@ mastra-pica-agent-platform/
 ## Resources
 
 - [Mastra Documentation](https://mastra.ai/en/docs)
+
 - [Pica Dashboard](https://app.picaos.com) and [Pica Documentation](https://docs.picaos.com/get-started/introduction)
