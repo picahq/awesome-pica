@@ -161,7 +161,7 @@ To restrict agent access to specific services, modify the Pica initialization in
 ```typescript
 // Limit to specific services
 const pica = new Pica(process.env.PICA_SECRET!, {
-  connectors: [...], // List of connection IDs of the apps that you need.
+  connectors: [...], // List of connection IDs of the apps that you need, collected from your Pica dashboard [app.picaos.com](https://app.picaos.com/connections).
 });
 ```
 
@@ -189,3 +189,4 @@ mastra-pica-agent-platform/
 - [Mastra Documentation](https://mastra.ai/en/docs)
 
 - [Pica Dashboard](https://app.picaos.com) and [Pica Documentation](https://docs.picaos.com/get-started/introduction)
+
