@@ -3,7 +3,7 @@ import { createWorkflow, createStep } from "@mastra/core/workflows";
 import { z } from "zod";
 import { listAllConnections } from "../tools/pica-tools";
 
-// Simple connection discovery step - no complex streaming, just basic functionality
+// Simple connection discovery step
 const discoverConnectionsStep = createStep({
   id: "discover-connections",
   description: "Discover available Pica connections",
@@ -57,7 +57,7 @@ const discoverConnectionsStep = createStep({
   },
 });
 
-// Simple workflow - just one step to keep it stable and basic
+// Simple workflow 
 export const starterWorkflow = createWorkflow({
   id: "mastra-pica-starter",
   description: "Simple starter template showing Mastra + Pica integration",
@@ -74,7 +74,7 @@ export const starterWorkflow = createWorkflow({
   .map(async ({ getStepResult }) => {
     const result = getStepResult(discoverConnectionsStep);
     
-    // Generate simple recommendations
+    // Generating simple recommendations
     const recommendations: string[] = [];
     
     if (result?.totalConnections === 0) {
