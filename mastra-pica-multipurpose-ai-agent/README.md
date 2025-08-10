@@ -286,22 +286,9 @@ mastra-pica-multipurpose-ai-agent/
 └── README.md                 # This file
 ```
 
-## Testing
-
-Test individual components to verify functionality:
-
-```bash
-# Test Pica tools integration
-npx tsx src/test-pica-tools.ts
-
-# Test starter workflow
-npx tsx src/test-simple-workflow.ts
-
-# Test starter agent
-npx tsx src/test-simple-workflow.ts agent
-```
 
 ## Resources
 
 - [Mastra Documentation](https://mastra.ai/en/docs)
 - [Pica Dashboard](https://app.picaos.com) and [Pica Documentation](https://docs.picaos.com/get-started/introduction)
+
