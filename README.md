@@ -24,6 +24,9 @@
 - **[Form Submission Chat App](./form-submission-chat-app)**  
   *A chat application to collect form submissions from users (similar to Typeform) for AI Agent Ideas.*
 
+- **[LangChain QuickBooks Invoice Agent](./langchain-quickbooks-invoice-agent)**
+  *A LangChain agent, built using BuildKit 2.0, that creates invoices in QuickBooks using Pica.*
+
 - **[One Tool Chat App](./onetool-chat-app)**  
   *A chat application utilizing the Pica One Tool for seamless communication.*
 
