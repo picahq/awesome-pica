@@ -1,20 +1,14 @@
-# 🚀 Waiting List Signup with InstantDB & Pica
+# Waitlist Signup App with InstantDB
 
-> **Build a lightning-fast waiting list with real-time database and automated Gmail notifications in minutes, not hours.**
+A real-time waiting list app built with **Next.js**, **InstantDB**, and **Pica's Gmail integration**.  
+Collect signups, send welcome emails, and manage them with a live dashboard.
 
 ![Waiting List Demo](image.png)
-
-# 🚀 Waiting List Signup with InstantDB & Pica
-
-A real-time waiting list app built with **Next.js**, **InstantDB**, and **Pica Gmail integration**.  
-Collect signups, send welcome emails, and manage them with a live dashboard.
 
 ---
 
 ## 🛠 Prerequisites
-
-- Node.js 18+  
-- Gmail account  
+ 
 - [InstantDB account](https://instantdb.com)  
 - [Pica account](https://picaos.com)  
 
@@ -26,7 +20,7 @@ Collect signups, send welcome emails, and manage them with a live dashboard.
 ```bash
 git clone https://github.com/your-username/waiting-list-app.git
 cd waiting-list-app
-````
+```
 
 ### 2. Install Dependencies
 
@@ -47,7 +41,7 @@ PICA_GMAIL_CONNECTION_KEY=your_gmail_connection_key
 
 ---
 
-## 🔑 How to Get Environment Variables
+## Environment Setup
 
 ### InstantDB
 
@@ -73,7 +67,7 @@ PICA_GMAIL_CONNECTION_KEY=your_gmail_connection_key
 
 ---
 
-## 🚀 Run Locally
+## Run Locally 🚀
 
 ```bash
 npm run dev

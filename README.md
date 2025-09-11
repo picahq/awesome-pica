@@ -24,6 +24,9 @@
 - **[Form Submission Chat App](./form-submission-chat-app)**  
   *A chat application to collect form submissions from users (similar to Typeform) for AI Agent Ideas.*
 
+- **[InstantDB Waitlist App](./instantdb-waitlist-app)**
+  *A waitlist application build using InstantDB and Pica.*
+
 - **[LangChain QuickBooks Invoice Agent](./langchain-quickbooks-invoice-agent)**
   *A LangChain agent, built using BuildKit 2.0, that creates invoices in QuickBooks using Pica.*
 
