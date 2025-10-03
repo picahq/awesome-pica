@@ -1,10 +1,10 @@
 <p align="center">
   <h1 align="center">Awesome Pica</h1>
   <p align="center">
-    <img src="https://assets.picaos.com/github/pica-man.png" width="200" alt="Pica One Tool">
+    <img src="./pica-man.png" width="200" style="border-radius: 20px" alt="Pica Man">
   </p>
   <p align="center">
-    This repository contains a collection of examples showcasing how to use the <strong><a href="https://docs.picaos.com/core/one-tool">Pica One Tool</a></strong> for various applications. Each example provides a practical use case and implementation details.
+    This repository contains a collection of examples showcasing Pica in various applications. Each example provides a practical use case and implementation details.
   </p>
 </p>
 
