@@ -1,27 +1,7 @@
-# AuthKit Demo App
+# AuthKit Next.js Demo App
 
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app) to showcase using [AuthKit](https://docs.picaos.com/core/authkit).
+![AuthKit](./demo.png)
 
-## Setup
+[AuthKit](https://www.npmjs.com/package/@picahq/authkit) is a drop-in component for third-party authentication that works with all major frontend frameworks. Instead of building OAuth flows and managing credentials for dozens of platforms, you can embed AuthKit and let your users securely connect their Gmail, Slack, Salesforce, QuickBooks, and other accounts in minutes—think Plaid, but for integrations.
 
-Add the `PICA_SECRET_KEY` to the `.env` file. You can copy it from the [Pica Dashboard](https://app.picaos.com/settings/api-keys).
-
-## Running
-
-Run the development server
-
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
-
-The app will be running on PORT 3000 🎉
-
-## Learn More
-
-Read the [AuthKit documentation](https://docs.picaos.com/core/authkit).
+## Check it out: [Pica AuthKit Demo](https://github.com/picahq/authkit-demo)
